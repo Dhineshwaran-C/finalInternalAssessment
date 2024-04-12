@@ -5,7 +5,7 @@ pipeline {
         stage('Build Docker Image') {
             steps {
                 script {
-                    sh 'docker build -t dhineshwaran/finalInternalAssessment .'
+                    bat 'docker build -t dhineshwaran/finalInternalAssessment .'
                 }
             }
         }
@@ -13,7 +13,7 @@ pipeline {
         stage('Publish Docker Image') {
             steps {
                 script {
-                    sh 'docker push dhineshwaran/finalInternalAssessment:latest'
+                    bat 'docker push dhineshwaran/finalInternalAssessment:latest'
                 }
             }
         }
@@ -21,7 +21,7 @@ pipeline {
         stage('Run Docker Container') {
             steps {
                 script {
-                    sh 'docker run --name finalserver -dit -p 5000:5000 dhineshwaran/finalInternalAssessment'
+                    bat 'docker run --name finalserver -dit -p 5000:5000 dhineshwaran/finalInternalAssessment'
                 }
             }
         }
