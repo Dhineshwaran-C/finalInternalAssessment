@@ -13,9 +13,8 @@ pipeline {
         stage('Publish Docker Image') {
             steps {
                 script {
-                    withCredentials([usernamePassword(credentialsId: '', usernameVariable: 'dhineshwaran', passwordVariable: 'Dhinesh@02')]) {
-                    bat 'docker push dhineshwaran/finalinternalassessment:latest'
-                    }
+                        bat 'docker login -u dhineshwaran -p Dhinesh@02'
+                        bat 'docker push dhineshwaran/finalinternalassessment:latest'
                 }
             }
         }
